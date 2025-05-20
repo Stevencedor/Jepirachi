@@ -1,46 +1,178 @@
-# Getting Started with Create React App
+# Jepirachi - Plataforma de Enseñanza
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Jepirachi Logo](./src/assets/logo.png)
 
-## Available Scripts
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.9-blue.svg)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.0-blue.svg)](https://reactjs.org/)
+[![Material UI](https://img.shields.io/badge/Material_UI-7.0-purple.svg)](https://mui.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-In the project directory, you can run:
+Jepirachi (que significa *"enseñanza"* en Wayuú) es una plataforma educativa enfocada en la capacitación para el mantenimiento de paneles solares, especialmente diseñada para comunidades con acceso limitado a internet en regiones como La Guajira, Colombia.
 
-### `npm start`
+## 🚀 Características principales
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- ✅ **Contenido offline**: Acceso a materiales educativos sin conexión continua a internet
+- 📚 **Módulos interactivos**: Lecciones paso a paso con videos demostrativos
+- 🧪 **Evaluaciones prácticas**: Seguimiento del progreso con evaluaciones integradas
+- 🌐 **Soporte multilingüe**: Español, Inglés y Wayuú
+- 📱 **Diseño responsivo**: Adaptable a diferentes dispositivos y tamaños de pantalla
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Arquitectura Técnica
 
-### `npm test`
+### Visión general
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+La aplicación está construida con una arquitectura frontend moderna basada en React. Utiliza un diseño orientado a componentes con manejo de estado centralizado a través de Context API de React, lo que permite una gestión eficiente del estado de la aplicación sin necesidad de bibliotecas externas más pesadas como Redux.
 
-### `npm run build`
+### Estructura del proyecto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/
+├── assets/             # Recursos estáticos (imágenes, iconos)
+├── components/         # Componentes reutilizables de UI
+├── context/            # Contextos de React para estado global
+├── interface/          # Definiciones de tipos e interfaces
+├── layouts/            # Componentes estructurales del diseño
+├── pages/              # Componentes de páginas completas
+├── routes/             # Configuración de enrutamiento
+├── theme/              # Configuración del tema de diseño
+├── utils/              # Funciones y utilidades auxiliares
+└── __tests__/          # Tests e2e e integración
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tecnologías utilizadas
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Principales
 
-### `npm run eject`
+- **React 19**: Biblioteca principal para la construcción de interfaces
+- **TypeScript 4.9**: Tipado estático para mejorar la calidad del código
+- **React Router 7**: Navegación y enrutamiento entre páginas
+- **Material UI 7**: Sistema de diseño de componentes
+- **React YouTube**: Integración con la API de YouTube para visualización de videos educativos
+- **DayJS**: Biblioteca ligera para manejo de fechas y soporte para localización
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Testing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Jest**: Framework de testing
+- **React Testing Library**: Utilidades para testing de componentes React
+- **Testing Library User Event**: Simulación de eventos de usuario para pruebas
+- **Jest DOM**: Extensiones de Jest para testing en DOM
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Detalles de implementación
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Internacionalización
 
-## Learn More
+El sistema soporta múltiples idiomas (Español, Inglés y Wayuú) a través de un `LanguageContext` personalizado que utiliza un sistema de traducciones basado en objetos JSON. Cada componente puede acceder a las traducciones mediante el hook `useLanguage`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Autenticación y Autorización
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+La gestión de sesiones de usuario se maneja a través de `AuthContext`, que proporciona funciones para login, registro y logout, además de mantener el estado de autenticación. Para esta versión inicial, la autenticación se simula con datos almacenados en localStorage.
+
+### Visualización de contenido educativo
+
+Los módulos educativos se presentan con un sistema progresivo que permite:
+- Reproducción de videos tutoriales
+- Seguimiento del progreso del estudiante
+- Evaluaciones interactivas
+- Generación de certificados al completar el curso
+
+### Modo offline
+
+La aplicación está diseñada considerando la posibilidad de uso en áreas con conectividad limitada, implementando:
+- Almacenamiento local del progreso del usuario
+- Carga eficiente de recursos multimedia
+- UI optimizada para funcionar con conexiones inestables
+
+
+## Contribución al proyecto
+
+### Estándares de código
+
+- Se utiliza ESLint con la configuración extendida de React para mantener la consistencia del código.
+- Los componentes deben tener pruebas unitarias asociadas.
+- Se prefiere el uso de componentes funcionales con hooks en lugar de componentes de clase.
+
+### Proceso de testing
+
+1. **Pruebas unitarias**: Para componentes individuales usando React Testing Library
+2. **Pruebas de integración**: Para flujos completos como autenticación
+3. **Pruebas end-to-end**: Para simular interacciones reales de usuario
+
+Para ejecutar las pruebas:
+```bash
+npm test
+```
+
+### Añadiendo nuevos idiomas
+
+Para añadir un nuevo idioma al sistema:
+
+1. Extender el objeto de traducciones en `LanguageContext.tsx`
+2. Crear un nuevo locale para DayJS si es necesario
+3. Actualizar el selector de idiomas en los componentes relevantes
+
+## Requisitos del sistema
+
+- Node.js 18.0 o superior
+- npm 8.0 o superior
+- Navegadores modernos (Chrome 90+, Firefox 90+, Edge 90+, Safari 14+)
+
+## Instalación y configuración
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/jepirachi-platform.git
+   cd jepirachi-platform
+   ```
+
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+
+3. Configura las variables de entorno (opcional):
+   Crea un archivo `.env.local` en la raíz del proyecto y define las variables necesarias.
+
+## Inicializar Jepirachi
+
+Desde el directorio principal, ejecuta:
+```bash
+npm start
+```
+
+La aplicación se ejecutará en el navegador en [http://localhost:3000](http://localhost:3000)
+
+## Comandos disponibles
+
+| Comando | Descripción |
+|---------|-------------|
+| `npm start` | Inicia la aplicación en modo desarrollo |
+| `npm test` | Ejecuta las pruebas con cobertura |
+| `npm run build` | Genera una versión de producción en la carpeta `/build` |
+
+## Despliegue
+
+La aplicación está preparada para ser desplegada en servicios como:
+
+- Netlify
+- Vercel
+- GitHub Pages
+- Firebase Hosting
+
+Para el despliegue en producción, ejecuta:
+```bash
+npm run build
+```
+
+Y luego sube los archivos de la carpeta `/build` a tu servidor preferido.
+
+## Licencia
+
+Este proyecto está licenciado bajo MIT License - consulta el archivo LICENSE para más detalles.
+
+## Equipo
+
+Desarrollado como parte del Proyecto Integrador II en la Universidad de La Salle, enfocado en soluciones tecnológicas para comunidades rurales con acceso limitado a recursos educativos.
+
+## Estado del proyecto
+
+El proyecto se encuentra actualmente en fase beta (Mayo 2025). Se están implementando nuevas características y mejorando la estabilidad.
