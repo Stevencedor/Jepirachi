@@ -9,7 +9,17 @@ interface Translations {
 
 const translations: Translations = {
   es: {
+    // Formulario
+    'name': 'Nombre',
+    'email': 'Correo electrónico',
+    'password': 'Contraseña',
+    'confirm_password': 'Confirmar contraseña',
+    'login': 'Iniciar sesión',
+    'register': 'Registrarse',
+    'access_account': 'Accede a tu cuenta',
+
     // Página de inicio
+    'welcome': 'Bienvenido',
     'welcome_to_jepirachi': 'Bienvenido a Jepirachi',
     'jepirachi_description': 'Jepirachi significa "enseñanza" en Wayuú, reflejando nuestro compromiso con la educación en comunidades energéticamente sostenibles.',
     'solar_maintenance_course': 'Mantenimiento de Paneles Solares',
@@ -123,7 +133,17 @@ const translations: Translations = {
 
   },
   en: {
+    // Form
+    'name': 'Name',
+    'email': 'Email',
+    'password': 'Password',
+    'confirm_password': 'Confirm Password',
+    'login': 'Login',
+    'register': 'Register',
+    'access_account': 'Access your account',
+
     // Home page
+    'welcome': 'Welcome',
     'welcome_to_jepirachi': 'Welcome to Jepirachi',
     'jepirachi_description': 'Jepirachi means "teaching" in Wayuú, reflecting our commitment to education in energy-sustainable communities.',
     'solar_maintenance_course': 'Solar Panel Maintenance',
@@ -236,7 +256,17 @@ const translations: Translations = {
     'december': 'December',
   },
   wayuu:{
+    // Formulario
+    'name': 'Tachikua',
+    'email': 'Ashajushikat süpüla pütchi',
+    'password': 'Pütchi apülajaana',
+    'confirm_password': 'Apültaa tü pütchi apülajaanakalü',
+    'login': 'Asha\'jüin',
+    'register': 'Asha\'jüin süpüla',
+    'access_account': 'Pütüma pütüjaka otta püshajaa wane jeketü',
+    
     //Inicio
+    'welcome': 'Tü Tachikua',
     'welcome_to_jepirachi': 'Anakuaipaa Jepirachi',
     'jepirachi_description': "Jepirachi süchikanajüin washirüin sümaa ekirajaa sulu'u kojutuin süchikua katsüinsü sünain wayuu nóümainka.",
     'solar_maintenance_course': 'Akaliijaa Panela Solar',
