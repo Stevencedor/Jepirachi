@@ -17,6 +17,16 @@ const translations: Translations = {
     'login': 'Iniciar sesión',
     'register': 'Registrarse',
     'access_account': 'Accede a tu cuenta',
+    'email_required': 'Correo electrónico requerido',
+    'password_required': 'Contraseña requerida',
+    'email_not_registered': 'El correo electrónico no está registrado',
+    'password_incorrect': 'La contraseña es incorrecta',
+    'name_required': 'Nombre requerido',
+    'location_required': 'Ubicación requerida',
+    'passwords_not_match': 'Las contraseñas no coinciden',
+    'register_success': 'Registro exitoso',
+
+
 
     // Página de inicio
     'welcome': 'Bienvenido',
@@ -141,6 +151,14 @@ const translations: Translations = {
     'login': 'Login',
     'register': 'Register',
     'access_account': 'Access your account',
+    'email_required': 'Email is required',
+    'password_required': 'Password is required',
+    'email_not_registered': 'Email is not registered',
+    'password_incorrect': 'Password is incorrect',
+    'name_required': 'Name is required',
+    'location_required': 'Location is required',
+    'passwords_not_match': 'Passwords do not match',
+    'register_success': 'Registration successful',
 
     // Home page
     'welcome': 'Welcome',
@@ -264,7 +282,15 @@ const translations: Translations = {
     'login': 'Asha\'jüin',
     'register': 'Asha\'jüin süpüla',
     'access_account': 'Pütüma pütüjaka otta püshajaa wane jeketü',
-    
+    'email_required': 'Ashajushikat süpüla pütchi',
+    'password_required': 'Pütchi apülajaana',
+    'email_not_registered': 'Ashajushikat süpüla pütchi nnojoishi',
+    'password_incorrect': 'Pütchi apülajaana nnojoishi',
+    'name_required': 'Tachikua süpüla pütchi',
+    'location_required': 'Püchimaajachi süpüla pütchi',
+    'passwords_not_match': 'Pütchi apülajaanakalü nnojoishi',
+    'register_success': 'Asha\'jüin süpüla kettaasü',
+
     //Inicio
     'welcome': 'Tü Tachikua',
     'welcome_to_jepirachi': 'Anakuaipaa Jepirachi',
@@ -386,7 +412,7 @@ interface LanguageContextType {
   t: (key: string) => string;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<string>(() => {
