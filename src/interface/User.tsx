@@ -12,8 +12,11 @@ export interface User {
   score?: string;
   lastModule?: string;
   moduleCompleted?: string;
+  moduleCompletedMonth?: string;
+  moduleCompletedYear?: string;
   badge1?: string;
   badge2?: string;
   avatar?: string;
   role?: string;
+  program?: string;
 }

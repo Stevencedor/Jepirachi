@@ -1,20 +1,21 @@
 import { useParams } from 'react-router-dom';
 import ModuloViewer from '../components/ModuloViewer';
 import { Container } from '@mui/material';
+import { useLanguage } from '../context/LanguageContext';
 
 const moduloData = {
   '1': {
-    titulo: 'Módulo 1: Introducción',
-    descripcion: 'Conoce los fundamentos del mantenimiento solar.',
+    titulo: 'module_1_title',
+    descripcion: 'module_1_description',
     videoUrl: 'https://www.youtube.com/watch?v=unHE7lAb-24',
   },
   '2': {
-    titulo: 'Módulo 2: Mantenimiento Preventivo',
+    titulo: 'module_2_title',
     descripcion: 'Aprende a prevenir fallos comunes.',
     videoUrl: 'https://www.youtube.com/watch?v=dDsaXt8tiUI',
   },
   '3': {
-    titulo: 'Módulo 3: Mantenimiento Correctivo',
+    titulo: 'module_3_title',
     descripcion: 'Corrige errores y fallas en sistemas solares.',
     videoUrl: 'https://www.youtube.com/watch?v=HcBRkk4Lm_s',
   },
@@ -22,18 +23,19 @@ const moduloData = {
 
 const ModuloViewerPage = () => {
   const { id } = useParams();
+  const { t } = useLanguage();
 
   const modulo = moduloData[id as keyof typeof moduloData];
 
   if (!modulo) {
-    return <Container><p>Módulo no encontrado</p></Container>;
+    return <Container><p>{t('not_available')}</p></Container>;
   }
 
   return (
     <Container sx={{ mt: 4 }}>
       <ModuloViewer
-        titulo={modulo.titulo}
-        descripcion={modulo.descripcion}
+        titulo={t(modulo.titulo)}
+        descripcion={t(modulo.descripcion)}
         videoUrl={modulo.videoUrl}
       />
     </Container>

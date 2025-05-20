@@ -1,5 +1,4 @@
 import {
-  Badge,
   Box,
   Button,
   Card,
@@ -8,39 +7,84 @@ import {
   Typography,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { ReactNode } from 'react';
 
-interface Modulo {
+export type ModuleStatus = 'completed' | 'in_progress' | 'locked';
+
+export interface Modulo {
   titulo: string;
   progreso: number;
-  estado: string;
-  color: 'success' | 'primary' | 'secondary';
+  estado: ModuleStatus;
+  estadoTexto: string;
   boton: string;
 }
 
-const ModuleList = ({ modulos }: { modulos: Modulo[] }) => {
+interface ModuleListProps {
+  modulos: Modulo[];
+  renderStatus?: (estado: ModuleStatus, estadoTexto: string) => ReactNode;
+}
+
+const ModuleList = ({ modulos, renderStatus }: ModuleListProps) => {
   const navigate = useNavigate();
+
+  const getButtonColor = (estado: ModuleStatus) => {
+    switch (estado) {
+      case 'completed':
+        return 'success';
+      case 'in_progress':
+        return 'primary';
+      default:
+        return 'inherit';
+    }
+  };
+
+  const getButtonVariant = (estado: ModuleStatus) => {
+    return estado === 'locked' ? 'outlined' : 'contained';
+  };
 
   return (
     <>
       {modulos.map((mod, idx) => (
-        <Card key={idx} sx={{ mb: 2, borderLeft: '4px solid #198754' }}>
+        <Card 
+          key={idx} 
+          sx={{ 
+            mb: 2, 
+            borderLeft: '4px solid',
+            borderLeftColor: mod.estado === 'completed' ? 'success.main' : 
+                           mod.estado === 'in_progress' ? 'primary.main' : 
+                           'grey.300',
+            position: 'relative'
+          }}
+        >
           <CardContent>
-            <Typography gutterBottom>{mod.titulo}</Typography>
-            <LinearProgress variant="determinate" value={mod.progreso} sx={{ mb: 1 }} />
-            <Box display="flex" justifyContent="space-between" alignItems="center">
-              <Badge color={mod.color} badgeContent={mod.estado} sx={{ mr: 2 }} />
+            <Box sx={{ pr: 10 }}> {/* Espacio para el estado */}
+              <Typography gutterBottom>{mod.titulo}</Typography>
+              <LinearProgress 
+                variant="determinate" 
+                value={mod.progreso} 
+                sx={{ 
+                  mb: 2,
+                  height: 8,
+                  borderRadius: 1,
+                  backgroundColor: 'grey.200'
+                }} 
+              />
               <Button
-                variant={mod.progreso > 0 ? 'contained' : 'outlined'}
-                disabled={mod.progreso === 0}
+                variant={getButtonVariant(mod.estado)}
+                color={getButtonColor(mod.estado)}
+                disabled={mod.estado === 'locked'}
                 onClick={() => {
-                  if (mod.progreso > 0) {
+                  if (mod.estado !== 'locked') {
                     navigate(`/modulo/${idx + 1}`);
                   }
                 }}
+                size="small"
               >
                 {mod.boton}
               </Button>
             </Box>
+            
+            {renderStatus && renderStatus(mod.estado, mod.estadoTexto)}
           </CardContent>
         </Card>
       ))}

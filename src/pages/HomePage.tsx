@@ -5,18 +5,28 @@ import {
   CardContent,
   Container,
   Typography,
+  List,
+  ListItem,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import cursoMantenimiento from '../assets/curso-mantenimiento.jpg';
-
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
+
+  const features = [
+    t('offline_content'),
+    t('video_tutorials'),
+    t('interactive_evaluations'),
+    t('completion_certificate')
+  ];
 
   return (
     <Container sx={{ mt: 4 }}>
       <Typography variant="h4" align="center" gutterBottom fontWeight={600}>
-        Bienvenido a Jepirachi
+        {t('welcome_to_jepirachi')}
       </Typography>
 
       <Box
@@ -31,25 +41,40 @@ const HomePage = () => {
         }}
       >
         <Typography fontSize={16}>
-          <strong>Jepirachi</strong> significa "enseñanza" en Wayuú, reflejando nuestro compromiso con la educación en comunidades energéticamente sostenibles.
+          {t('jepirachi_description')}
         </Typography>
       </Box>
 
       <Card sx={{ maxWidth: 800, mx: 'auto', boxShadow: 3 }}>
-        <img src={cursoMantenimiento} alt="Curso de Mantenimiento" style={{ width: '100%', borderRadius: '4px 4px 0 0' }} />
+        <img 
+          src={cursoMantenimiento} 
+          alt={t('solar_maintenance_course')} 
+          style={{ width: '100%', borderRadius: '4px 4px 0 0' }} 
+        />
         <CardContent>
           <Typography variant="h6" fontWeight={600} gutterBottom>
-            Mantenimiento de Paneles Solares
+            {t('solar_maintenance_course')}
           </Typography>
           <Typography variant="body2" paragraph>
-            Aprende las técnicas esenciales para el mantenimiento preventivo y correctivo de sistemas solares en zonas rurales y apartadas.
+            {t('course_description')}
           </Typography>
-          <ul style={{ paddingLeft: '1.2rem', marginBottom: '1rem' }}>
-            <li>Contenido disponible offline</li>
-            <li>Videos tutoriales prácticos</li>
-            <li>Evaluaciones interactivas</li>
-            <li>Certificado al completar</li>
-          </ul>
+          <List sx={{ 
+            pl: 2, 
+            mb: 2,
+            '& .MuiListItem-root': {
+              p: 0,
+              mb: 0.5,
+              display: 'list-item'
+            }
+          }}>
+            {features.map((feature, index) => (
+              <ListItem key={index}>
+                <Typography variant="body2" component="span">
+                  {feature}
+                </Typography>
+              </ListItem>
+            ))}
+          </List>
           <Button
             variant="contained"
             color="success"
@@ -58,7 +83,7 @@ const HomePage = () => {
             sx={{ textTransform: 'none', fontWeight: 500 }}
             onClick={() => navigate('/cursos')}
           >
-            Comenzar Curso
+            {t('start_course')}
           </Button>
         </CardContent>
       </Card>
@@ -74,10 +99,10 @@ const HomePage = () => {
         mx="auto"
       >
         <Typography variant="h6" gutterBottom fontWeight={500}>
-          Próximamente
+          {t('coming_soon_title')}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Estamos desarrollando nuevos cursos adaptados a las necesidades de la comunidad Wayuú y otras regiones de Colombia.
+          {t('coming_soon_description')}
         </Typography>
       </Box>
     </Container>
