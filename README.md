@@ -176,3 +176,10 @@ Desarrollado como parte del Proyecto Integrador II en la Universidad de La Salle
 ## Estado del proyecto
 
 El proyecto se encuentra actualmente en fase beta (Mayo 2025). Se están implementando nuevas características y mejorando la estabilidad.
+
+## Documentación adicional
+
+Para obtener información más detallada sobre el uso y desarrollo de la plataforma, consulta los siguientes recursos:
+
+- 📘 [Manual de Usuario](./docs/user-manual/README.md) - Instrucciones paso a paso para utilizar la plataforma
+- 🧰 [Documentación Técnica](./docs/code-docs/README.md) - Detalles sobre la implementación y código fuente
