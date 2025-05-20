@@ -10,6 +10,7 @@ import PerfilPage from './pages/PerfilPage';
 import ModuloViewerPage from './pages/ModuleViewerPage';
 import TestCertificatePage from './pages/TestCertificatePage';
 import Navbar from './components/Navbar';
+import Box from '@mui/material/Box';
 
 interface AppProps {
   useCustomRouter?: boolean;
@@ -26,7 +27,9 @@ function App({ useCustomRouter = true }: AppProps) {
           <PrivateRoute>
             <>
               <Navbar />
-              <HomePage />
+              <Box sx={{ mt: '64px', pt: 2 }}>
+                <HomePage />
+              </Box>
             </>
           </PrivateRoute>
         }
@@ -37,7 +40,9 @@ function App({ useCustomRouter = true }: AppProps) {
           <PrivateRoute>
             <>
               <Navbar />
-              <CursosPage />
+              <Box sx={{ mt: '64px', pt: 2 }}>
+                <CursosPage />
+              </Box>
             </>
           </PrivateRoute>
         }
@@ -48,7 +53,9 @@ function App({ useCustomRouter = true }: AppProps) {
           <PrivateRoute>
             <>
               <Navbar />
-              <PerfilPage />
+              <Box sx={{ mt: '15px', pt: 2 }}>
+                <PerfilPage />
+              </Box>
             </>
           </PrivateRoute>
         }
@@ -59,7 +66,9 @@ function App({ useCustomRouter = true }: AppProps) {
           <PrivateRoute>
             <>
               <Navbar />
-              <ModuloViewerPage />
+              <Box sx={{ mt: '64px', pt: 2 }}>
+                <ModuloViewerPage />
+              </Box>
             </>
           </PrivateRoute>
         }
@@ -70,7 +79,9 @@ function App({ useCustomRouter = true }: AppProps) {
           <PrivateRoute>
             <>
               <Navbar />
-              <TestCertificatePage />
+              <Box sx={{ mt: '64px', pt: 2 }}>
+                <TestCertificatePage />
+              </Box>
             </>
           </PrivateRoute>
         }

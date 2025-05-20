@@ -63,7 +63,7 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar position="static" sx={{ backgroundColor: '#198754' }}>
+      <AppBar position="fixed" sx={{ backgroundColor: '#198754', top: 0, zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Container maxWidth="lg">
           <Toolbar>
             <Box
