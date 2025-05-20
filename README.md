@@ -181,5 +181,5 @@ El proyecto se encuentra actualmente en fase beta (Mayo 2025). Se están impleme
 
 Para obtener información más detallada sobre el uso y desarrollo de la plataforma, consulta los siguientes recursos:
 
-- 📘 [Manual de Usuario](./docs/user-manual/README.md) - Instrucciones paso a paso para utilizar la plataforma
-- 🧰 [Documentación Técnica](./docs/code-docs/README.md) - Detalles sobre la implementación y código fuente
+- 📘 [Manual de Usuario](./docs/user-manual/technicalInfo.md) - Instrucciones paso a paso para utilizar la plataforma
+- 🧰 [Documentación Técnica](./docs/code-docs/userManual.md) - Detalles sobre la implementación y código fuente
