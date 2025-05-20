@@ -25,9 +25,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import React from 'react';
 
-const Navbar = () => {
-  const { logout, user, isAuthenticated } = useAuth();
-  const { language, setLanguage, t } = useLanguage();
+const Navbar = () => {  const { logout, user, isAuthenticated } = useAuth();
+  const { setLanguage, t } = useLanguage();
   const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
