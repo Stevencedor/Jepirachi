@@ -51,7 +51,7 @@ const LoginForm = () => {
       if (!user) {
         const defaultUser = {
           email: 'usuario@jepirachi.com',
-          password: '123456',
+          password: 'Demo123456Jepircahi!',
           name: 'Joander Gonzalez',
           location: 'La Guajira, Colombia',
           joined: '2025-03-01',
@@ -175,7 +175,7 @@ const LoginForm = () => {
         <small>
           {t('test_credentials')}:<br />
           Email: usuario@jepirachi.com<br />
-          {t('password')}: 123456
+          {t('password')}: Demo123456Jepircahi!
         </small>
       </div>
     </form>
