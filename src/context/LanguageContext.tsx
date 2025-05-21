@@ -25,6 +25,7 @@ const translations: Translations = {
     'location_required': 'Ubicación requerida',
     'passwords_not_match': 'Las contraseñas no coinciden',
     'register_success': 'Registro exitoso',
+    'test_credentials': 'Credenciales de prueba:',
 
 
 
@@ -159,6 +160,7 @@ const translations: Translations = {
     'location_required': 'Location is required',
     'passwords_not_match': 'Passwords do not match',
     'register_success': 'Registration successful',
+    'test_credentials': 'Test Credentials:',
 
     // Home page
     'welcome': 'Welcome',
@@ -290,6 +292,7 @@ const translations: Translations = {
     'location_required': 'Püchimaajachi süpüla pütchi',
     'passwords_not_match': 'Pütchi apülajaanakalü nnojoishi',
     'register_success': 'Asha\'jüin süpüla kettaasü',
+    'test_credentials': 'Ajawaa\'in jinaa":',
 
     //Inicio
     'welcome': 'Tü Tachikua',
